@@ -172,6 +172,13 @@ end
 
 local time = 0
 local function InterruptBar_OnUpdate(self, elapsed)
+	local _, instType = IsInInstance()
+	if instType == "pvp" or instType == "arena" then
+		bar:Show()
+	else
+		bar:Hide()
+	end
+
 	time = time + elapsed
 	if time > 0.25 then
 		getsize()
